@@ -15,7 +15,7 @@ device_index = int(input('Device index: '))
 
 # Configure socket
 localIP     = input("IP: ")
-localPort   = 20001
+localPort   = int(input("Port: "))
 bufferSize  = 1024
 
 serverAddressPort = (localIP, localPort)
