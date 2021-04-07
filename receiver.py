@@ -1,8 +1,9 @@
 import socket
 
-localIP     = "127.0.0.1"
+localIP = socket.gethostbyname(socket.gethostname())
 localPort   = 20001
 bufferSize  = 1024
+print("Connect to {}:{}".format(localIP, localPort))
 
 msgFromServer       = "Hello UDP Client"
 bytesToSend         = str.encode(msgFromServer)

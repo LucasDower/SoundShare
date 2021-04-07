@@ -14,7 +14,7 @@ for i in range(0, audio.get_device_count()):
 device_index = int(input('Device index: '))
 
 # Configure socket
-localIP     = "127.0.0.1"
+localIP     = input("IP: ")
 localPort   = 20001
 bufferSize  = 1024
 
