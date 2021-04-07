@@ -22,4 +22,4 @@ $ python transmitter.py
 ```
 Additionally, the transmitter will be asked which audio device to record from. Typically, only input devices such as microphones will be supported.
 
-To allow for recording for 'what you hear', on Windows, go to the *Sound Control Panel*, navigate to the *Recording* tab, and enable 'Stereo Mix'. This device will now appear in the menu given when executing `transmitter.py`.
+To allow for recording for 'what you hear', on Windows, go to the *Sound Control Panel*, navigate to the *Recording* tab, and enable 'Stereo Mix'. This device will now appear in the menu given when executing `transmitter.py`. If 'Stereo Mix' does not appear, install a [custom loopback](https://vac.muzychenko.net/en/download.htm).
