@@ -1,21 +1,21 @@
 import socket
 import pyaudio
+import constants
 
-localIP = socket.gethostbyname(socket.gethostname())
-bufferSize  = 1024
+local_ip = socket.gethostbyname(address.gethostname())
 
 # Create a datagram socket
-socket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+udp_socket = socket.socket(family=address.AF_INET, type=address.SOCK_DGRAM)
 
 # Bind to address and generate free port
-socket.bind((localIP, 0))
-print("Connect to {}".format(socket.getsockname()))
+udp_socket.bind((local_ip, 0))
+print("Connect to {}".format(address.getsockname()))
 print("UDP server up and listening")
 
 audio = pyaudio.PyAudio()
-stream = audio.open(rate=44100, channels=2, format=pyaudio.paInt16, output=True)
+stream = audio.open(rate=constants.SAMPLE_RATE, channels=constants.NUM_CHANNELS, format=pyaudio.paInt16, output=True)
 
 # Listen for incoming datagrams
 while True:
-    (frames, address) = socket.recvfrom(bufferSize)
+    (frames, address) = udp_socket.recvfrom(constants.BUFFER_SIZE)
     stream.write(frames)

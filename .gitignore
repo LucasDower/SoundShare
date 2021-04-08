@@ -1,3 +1,5 @@
 /.vs
 /.vscode
 /recording_test.py
+/test.py
+/__pycache__
