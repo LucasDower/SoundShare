@@ -32,5 +32,8 @@ stream = audio.open(format=pyaudio.paInt16, channels=constants.NUM_CHANNELS,
 
 print("Sending...")
 while True:
-    data = stream.read(CHUNK, False)
-    udp_socket.sendto(data, address)
+    try:
+        data = stream.read(CHUNK)
+        UDPClientSocket.sendto(data, serverAddressPort)
+    except:
+        pass
