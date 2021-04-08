@@ -14,7 +14,7 @@ try:
 except Exception as e:
     sys.exit("Could not bind to a socket\n")
 
-print("Connect to {}".format(local_ip.getsockname()))
+print("Connect to {}".format(udp_socket.getsockname()))
 print("UDP server up and listening")
 
 audio = pyaudio.PyAudio()
