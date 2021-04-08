@@ -35,7 +35,5 @@ while True:
     try:
         data = stream.read(constants.CHUNK_SIZE)
         udp_socket.sendto(data, address)
-    except KeyboardInterrupt:
-        sys.exit()
     except:
         pass
