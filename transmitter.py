@@ -23,7 +23,7 @@ except:
     sys.exit("Invalid port number")
 
 address = (local_ip, local_port)
-udp_socket = socket.socket(family=address.AF_INET, type=address.SOCK_DGRAM)
+udp_socket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 
 # Send to server using created UDP socket
 stream = audio.open(format=pyaudio.paInt16, channels=constants.NUM_CHANNELS,
@@ -33,8 +33,8 @@ stream = audio.open(format=pyaudio.paInt16, channels=constants.NUM_CHANNELS,
 print("Sending...")
 while True:
     try:
-        data = stream.read(CHUNK)
-        UDPClientSocket.sendto(data, serverAddressPort)
+        data = stream.read(constants.CHUNK_SIZE)
+        udp_socket.sendto(data, address)
     except KeyboardInterrupt:
         sys.exit()
     except:

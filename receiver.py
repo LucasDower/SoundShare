@@ -1,11 +1,12 @@
 import socket
 import pyaudio
 import constants
+import sys
 
-local_ip = socket.gethostbyname(address.gethostname())
+local_ip = socket.gethostbyname(socket.gethostname())
 
 # Create a datagram socket
-udp_socket = socket.socket(family=address.AF_INET, type=address.SOCK_DGRAM)
+udp_socket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 
 # Bind to address and generate free port
 try:
@@ -13,7 +14,7 @@ try:
 except Exception as e:
     sys.exit("Could not bind to a socket\n")
 
-print("Connect to {}".format(address.getsockname()))
+print("Connect to {}".format(local_ip.getsockname()))
 print("UDP server up and listening")
 
 audio = pyaudio.PyAudio()
