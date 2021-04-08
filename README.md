@@ -1,14 +1,18 @@
 # SoundShare
 *SoundShare* is a simple application to allow audio from one PC to be transmitted over a local network and played on another PC.
 
-:warning: **This repo has no error handling and has only been tested in Windows.**
+:warning: **This repo has only been tested in Windows. Differences in sockets and port handling on UNIX may cause errors.**
 
 ## Install
 The project uses [Python](https://www.python.org/) and requires [PyAudio](https://pypi.org/project/PyAudio/) which can be installed with
 ```
-$ pip install PyAudio
+$ pip install pyaudio
 ```
-
+If an error occurs, on Windows, try
+```
+$ pip install pipwin
+$ pipwin install pyaudio
+```
 ## Usage
 The host which is sending the audio data is the *transmitter* and the host which is receiving and playing the audio data is the *receiver*.
 
