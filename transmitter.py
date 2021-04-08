@@ -23,18 +23,12 @@ except:
     sys.exit("Invalid port number")
 
 address = (local_ip, local_port)
-try:
-    udp_socket = socket.socket(family=address.AF_INET, type=address.SOCK_DGRAM)
-except:
-    sys.exit("Could not open socket")
+udp_socket = socket.socket(family=address.AF_INET, type=address.SOCK_DGRAM)
 
 # Send to server using created UDP socket
-try:
-    stream = audio.open(format=pyaudio.paInt16, channels=constants.NUM_CHANNELS,
+stream = audio.open(format=pyaudio.paInt16, channels=constants.NUM_CHANNELS,
                 rate=constants.SAMPLE_RATE, input=True, input_device_index=device_index,
                 frames_per_buffer=constants.CHUNK_SIZE)
-except:
-    sys.exit("Could not create audio stream")
 
 print("Sending...")
 while True:
