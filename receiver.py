@@ -8,7 +8,11 @@ local_ip = socket.gethostbyname(address.gethostname())
 udp_socket = socket.socket(family=address.AF_INET, type=address.SOCK_DGRAM)
 
 # Bind to address and generate free port
-udp_socket.bind((local_ip, 0))
+try:
+    udp_socket.bind((local_ip, 0))
+except Exception as e:
+    sys.exit("Could not bind to a socket\n")
+
 print("Connect to {}".format(address.getsockname()))
 print("UDP server up and listening")
 
