@@ -2,9 +2,6 @@ import socket
 import pyaudio
 import sys
 
-FORMAT = pyaudio.paInt16
-CHANNELS = 2
-RATE = 44100
 CHUNK = 200
 audio = pyaudio.PyAudio()
 
@@ -22,8 +19,8 @@ serverAddressPort = (localIP, localPort)
 UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 
 # Send to server using created UDP socket
-stream = audio.open(format=FORMAT, channels=CHANNELS,
-                rate=RATE, input=True, input_device_index = device_index,
+stream = audio.open(format=pyaudio.paInt16, channels=2,
+                rate=44100, input=True, input_device_index=device_index,
                 frames_per_buffer=CHUNK)
 
 print("Sending...")
