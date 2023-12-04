@@ -9,7 +9,7 @@ audio = pyaudio.PyAudio()
 for i in range(0, audio.get_device_count()):
     device_info = audio.get_device_info_by_index(i)
     print(i, device_info['name'], device_info['maxInputChannels'], device_info['maxOutputChannels'])
-device_index = int(input('Device index: '))
+device_index = int(input("Device index: "))
 
 # Configure socket
 local_ip = input("IP: ")
